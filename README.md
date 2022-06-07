@@ -20,3 +20,4 @@ I have a similar workflow to save and find my bookmarks on my machine (take a lo
 - Sort bookmarks based on the creation date or recently used.
 - Show a clean and simple UI.
 
+![BList](https://user-images.githubusercontent.com/20104703/172282754-f1392f56-6676-4d25-ba74-916b1c7031bc.gif)
