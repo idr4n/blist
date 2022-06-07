@@ -6,6 +6,8 @@ I want to be able to easily store any bookmark (a.k.a URL) with its description 
 
 I have a similar workflow to save and find my bookmarks on my machine (take a look [here](https://github.com/idr4n/.dotfiles#bookmarks-workflow)), but I want to have it accessible on any device on the web.
 
+![BList](https://user-images.githubusercontent.com/20104703/172282754-f1392f56-6676-4d25-ba74-916b1c7031bc.gif)
+
 **Stack**:
 
 - React-TypeScript application created with Vite.
@@ -19,5 +21,3 @@ I have a similar workflow to save and find my bookmarks on my machine (take a lo
 - Edit a bookmark's info.
 - Sort bookmarks based on the creation date or recently used.
 - Show a clean and simple UI.
-
-![BList](https://user-images.githubusercontent.com/20104703/172282754-f1392f56-6676-4d25-ba74-916b1c7031bc.gif)
