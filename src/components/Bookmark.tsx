@@ -3,6 +3,14 @@ import { BookmarkProps } from '../utils/types';
 
 // TODO: add hover effect to component. Maybe make it popup a bit
 
+  const goToBookmarkPage = (
+    e: React.MouseEvent<HTMLElement, MouseEvent>,
+    id: string
+  ) => {
+    e.stopPropagation();
+    navigate(`/bookmarks/${id}`, { replace: false });
+  };
+
 const BookmarkComp: React.FC<BookmarkProps> = ({ bookmark, selected }) => {
   return (
     <div
@@ -31,10 +39,12 @@ const BookmarkComp: React.FC<BookmarkProps> = ({ bookmark, selected }) => {
         <div className='overflow-clip text-gray-400'>
           <span className='font-bold'>Tags</span>: {bookmark.tags.join(', ')}
         </div>
-        <div className='text-gray-300'>
-          {/* TODO: change Edit for a favicon */}
-          <Link to={`/bookmarks/${bookmark.id}`}>Edit</Link>
-        </div>
+        <i
+          className={`fa-solid fa-gear text-gray-200 transition-all duration-300 ${
+            !isHovered ? 'invisible opacity-0' : 'visible opacity-100'
+          }`}
+          onClick={(e) => goToBookmarkPage(e, bookmark.id)}
+        ></i>
       </div>
     </div>
   );
