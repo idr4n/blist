@@ -11,6 +11,7 @@ const Dashboard: React.FC = () => {
     <div className='flex flex-col max-w-[90%] lg:max-w-screen-md mx-auto'>
       <h2 className='text-center py-5'>Bookmarks</h2>
       {isPending && <h3 className='text-center py-2'>Loading...</h3>}
+      {/* TODO: format error to be displayed nicer*/}
       {error && <div>{error}</div> }
       <BookmarksList bookmarks={bookmarks} />
     </div>

@@ -1,7 +1,17 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { BookmarkProps } from '../utils/types';
+import { openUrl } from '../utils/helpers';
 
-// TODO: add hover effect to component. Maybe make it popup a bit
+const BookmarkComp: React.FC<BookmarkProps> = ({ bookmark, selected }) => {
+  const navigate = useNavigate();
+
+  const handleBookmarkClick = (
+    e: React.MouseEvent<HTMLElement, MouseEvent>,
+    bookmarkTitle: string
+  ) => {
+    e.stopPropagation();
+    openUrl(bookmarkTitle);
+  };
 
   const goToBookmarkPage = (
     e: React.MouseEvent<HTMLElement, MouseEvent>,
@@ -11,7 +21,6 @@ import { BookmarkProps } from '../utils/types';
     navigate(`/bookmarks/${id}`, { replace: false });
   };
 
-const BookmarkComp: React.FC<BookmarkProps> = ({ bookmark, selected }) => {
   return (
     <div
       className={[
@@ -25,12 +34,15 @@ const BookmarkComp: React.FC<BookmarkProps> = ({ bookmark, selected }) => {
         'lg:h-20',
         'rounded-xl',
         'shadow-sm',
-        'shadow-gry-200',
+        'shadow-gray-200',
         'border',
         'bordergray-100',
         'cursor-pointer',
-        `${selected ? 'bg-gray-100' : ''}`,
+        'transition-all',
+        'duration-200',
+        `${selected ? 'bg-gray-100 shadow-gray-400' : ''}`,
       ].join(' ')}
+      onClick={(e) => handleBookmarkClick(e, bookmark.title)}
     >
       <div className='whitespace-pre-line line-clamp-2 lg:line-clamp-1 text-ellipsis leading-snug text-gray-500 font-light'>
         {bookmark.title}
@@ -39,9 +51,10 @@ const BookmarkComp: React.FC<BookmarkProps> = ({ bookmark, selected }) => {
         <div className='overflow-clip text-gray-400'>
           <span className='font-bold'>Tags</span>: {bookmark.tags.join(', ')}
         </div>
+        {/* TODO: add tooltip on hover icon*/}
         <i
-          className={`fa-solid fa-gear text-gray-200 transition-all duration-300 ${
-            !isHovered ? 'invisible opacity-0' : 'visible opacity-100'
+          className={`fa-solid fa-gear text-gray-200 transition-all duration-200 ${
+            !selected ? 'invisible opacity-0' : 'visible opacity-100'
           }`}
           onClick={(e) => goToBookmarkPage(e, bookmark.id)}
         ></i>
