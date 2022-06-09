@@ -102,19 +102,26 @@ const BookmarksList: React.FC<BookmarksListProps> = ({ bookmarks }) => {
     dispatch({ type: ActionType.LENGTH, payload: bookmarks.length });
   }, [bookmarks]);
 
-  const handleClick = (
-    _: React.MouseEvent<HTMLLIElement, MouseEvent>,
+  const handleHover = (
+    e: React.MouseEvent<HTMLElement, MouseEvent>,
     idx: number
   ) => {
-    dispatch({ type: ActionType.SELECT, payload: idx });
-    openUrl(bookmarks[idx].title);
+    if (e.type === 'mouseenter') {
+      dispatch({ type: ActionType.SELECT, payload: idx });
+    } else {
+      dispatch({ type: ActionType.SELECT, payload: -1 });
+    }
   };
 
   return (
     <div>
       <ul>
         {bookmarks.map((bookmark, idx) => (
-          <li key={bookmark.id} onClick={(e) => handleClick(e, idx)}>
+          <li
+            key={bookmark.id}
+            onMouseEnter={(e) => handleHover(e, idx)}
+            onMouseLeave={(e) => handleHover(e, idx)}
+          >
             <BookmarkComp
               bookmark={bookmark}
               selected={idx === state.selectedIndex ? true : false}
