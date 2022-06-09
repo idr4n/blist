@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom';
 import { BookmarkProps } from '../utils/types';
+
+// TODO: add hover effect to component. Maybe make it popup a bit
 
 const BookmarkComp: React.FC<BookmarkProps> = ({ bookmark, selected }) => {
   return (
@@ -24,8 +27,14 @@ const BookmarkComp: React.FC<BookmarkProps> = ({ bookmark, selected }) => {
       <div className='whitespace-pre-line line-clamp-2 lg:line-clamp-1 text-ellipsis leading-snug text-gray-500 font-light'>
         {bookmark.title}
       </div>
-      <div className='overflow-clip pt-2 text-gray-400 text-sm font-light'>
-        <span className='font-bold'>Tags</span>: {bookmark.tags.join(', ')}
+      <div className='flex justify-between pt-2 text-sm font-light'>
+        <div className='overflow-clip text-gray-400'>
+          <span className='font-bold'>Tags</span>: {bookmark.tags.join(', ')}
+        </div>
+        <div className='text-gray-300'>
+          {/* TODO: change Edit for a favicon */}
+          <Link to={`/bookmarks/${bookmark.id}`}>Edit</Link>
+        </div>
       </div>
     </div>
   );
