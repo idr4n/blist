@@ -73,25 +73,26 @@ const BookmarksList: React.FC<BookmarksListProps> = ({ bookmarks }) => {
     listLength: bookmarks.length,
   });
 
-  useEffect(() => {
-    if (arrowUpKey.keyPressed) {
-      dispatch({ type: ActionType.UP });
-      arrowUpKey.setKeyPressed(false)
+  const dispatchKey = (
+    key: { keyPressed: boolean; setKeyPressed: React.Dispatch<React.SetStateAction<boolean>> },
+    action: ActionType
+  ) => {
+    if (key.keyPressed) {
+      dispatch({ type: action });
+      key.setKeyPressed(false);
     }
+  };
+
+  useEffect(() => {
+    dispatchKey(arrowUpKey, ActionType.UP)
   }, [arrowUpKey.keyPressed]);
 
   useEffect(() => {
-    if (arrowDownKey.keyPressed) {
-      dispatch({ type: ActionType.DOWN });
-      arrowDownKey.setKeyPressed(false)
-    }
+    dispatchKey(arrowDownKey, ActionType.DOWN)
   }, [arrowDownKey.keyPressed]);
 
   useEffect(() => {
-    if (escKey.keyPressed) {
-      dispatch({ type: ActionType.ESC });
-      escKey.setKeyPressed(false)
-    }
+    dispatchKey(escKey, ActionType.ESC)
   }, [escKey.keyPressed]);
 
   useEffect(() => {
@@ -117,10 +118,7 @@ const BookmarksList: React.FC<BookmarksListProps> = ({ bookmarks }) => {
     <div>
       <ul>
         {bookmarks.map((bookmark, idx) => (
-          <li
-            key={bookmark.id}
-            onClick={(e) => handleClick(e, idx)}
-          >
+          <li key={bookmark.id} onClick={(e) => handleClick(e, idx)}>
             <BookmarkComp
               bookmark={bookmark}
               selected={idx === state.selectedIndex ? true : false}
