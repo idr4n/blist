@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import BookmarksList from '../../components/BookmarksList';
 import { useFetch } from '../../hooks/useFetch';
-import { Bookmark } from '../../utils/types';
+import { BookmarkType } from '../../utils/types';
 
 const Dashboard: React.FC = () => {
   const [url, setUrl] = useState('http://localhost:3001/bookmarks');
-  const { data: bookmarks, isPending, error } = useFetch<Bookmark[]>(url, []);
+  const { data: bookmarks, isPending, error } = useFetch<BookmarkType[]>(url, []);
 
   return (
     <div className='flex flex-col max-w-[90%] lg:max-w-screen-md mx-auto'>
