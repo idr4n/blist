@@ -8,7 +8,6 @@ import BookmarkComp from './Bookmark';
 enum ActionType {
   UP = 'arrowUp',
   DOWN = 'arrowDown',
-  ESC = 'escape',
   SELECT = 'select',
   LENGTH = 'setListLength',
   GOTOURL = 'go_to_url',
@@ -51,12 +50,6 @@ function listReducer(state: ListState, action: ListAction) {
 
     case ActionType.LENGTH:
       return { ...state, listLength: payload };
-
-    case ActionType.ESC:
-      return {
-        ...state,
-        selectedIndex: state.selectedIndex >= 0 ? -1 : state.selectedIndex,
-      };
 
     default:
       return state;
