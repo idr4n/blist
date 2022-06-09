@@ -74,25 +74,28 @@ const BookmarksList: React.FC<BookmarksListProps> = ({ bookmarks }) => {
   });
 
   const dispatchKey = (
-    key: { keyPressed: boolean; setKeyPressed: React.Dispatch<React.SetStateAction<boolean>> },
-    action: ActionType
+    key: {
+      keyPressed: boolean;
+      setKeyPressed: React.Dispatch<React.SetStateAction<boolean>>;
+    },
+    action: ListAction
   ) => {
     if (key.keyPressed) {
-      dispatch({ type: action });
+      dispatch(action);
       key.setKeyPressed(false);
     }
   };
 
   useEffect(() => {
-    dispatchKey(arrowUpKey, ActionType.UP)
+    dispatchKey(arrowUpKey, { type: ActionType.UP });
   }, [arrowUpKey.keyPressed]);
 
   useEffect(() => {
-    dispatchKey(arrowDownKey, ActionType.DOWN)
+    dispatchKey(arrowDownKey, { type: ActionType.DOWN });
   }, [arrowDownKey.keyPressed]);
 
   useEffect(() => {
-    dispatchKey(escKey, ActionType.ESC)
+    dispatchKey(escKey, { type: ActionType.SELECT, payload: -1 })
   }, [escKey.keyPressed]);
 
   useEffect(() => {
