@@ -1,4 +1,5 @@
 import { useEffect, useReducer } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useKeyPress } from '../hooks/useKeyPress';
 import { openUrl } from '../utils/helpers';
 import { BookmarksListProps } from '../utils/types';
@@ -10,7 +11,6 @@ enum ActionType {
   DOWN = 'arrowDown',
   SELECT = 'select',
   LENGTH = 'setListLength',
-  GOTOURL = 'go_to_url',
 }
 
 // bookmarks list actions type
@@ -57,10 +57,12 @@ function listReducer(state: ListState, action: ListAction) {
 }
 
 const BookmarksList: React.FC<BookmarksListProps> = ({ bookmarks }) => {
+  const navigate = useNavigate();
   const arrowUpKey = useKeyPress('ArrowUp');
   const arrowDownKey = useKeyPress('ArrowDown');
   const escKey = useKeyPress('Escape');
   const enterKey = useKeyPress('Enter');
+  const editKey = useKeyPress('e');
   const [state, dispatch] = useReducer(listReducer, {
     selectedIndex: -1,
     listLength: bookmarks.length,
@@ -88,7 +90,7 @@ const BookmarksList: React.FC<BookmarksListProps> = ({ bookmarks }) => {
   }, [arrowDownKey.keyPressed]);
 
   useEffect(() => {
-    dispatchKey(escKey, { type: ActionType.SELECT, payload: -1 })
+    dispatchKey(escKey, { type: ActionType.SELECT, payload: -1 });
   }, [escKey.keyPressed]);
 
   useEffect(() => {
@@ -101,6 +103,15 @@ const BookmarksList: React.FC<BookmarksListProps> = ({ bookmarks }) => {
   useEffect(() => {
     dispatch({ type: ActionType.LENGTH, payload: bookmarks.length });
   }, [bookmarks]);
+
+  useEffect(() => {
+    if (editKey.keyPressed && state.selectedIndex >= 0) {
+      navigate(`/bookmarks/${bookmarks[state.selectedIndex].id}`, {
+        replace: false,
+      });
+      editKey.setKeyPressed(false);
+    }
+  }, [editKey.keyPressed]);
 
   const handleHover = (
     e: React.MouseEvent<HTMLElement, MouseEvent>,

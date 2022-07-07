@@ -40,7 +40,7 @@ const BookmarkComp: React.FC<BookmarkProps> = ({ bookmark, selected }) => {
         'cursor-pointer',
         'transition-all',
         'duration-200',
-        `${selected ? 'bg-gray-100 shadow-gray-400' : ''}`,
+        `${selected ? 'bg-gray-50 shadow-gray-400' : ''}`,
       ].join(' ')}
       onClick={(e) => handleBookmarkClick(e, bookmark.title)}
     >
