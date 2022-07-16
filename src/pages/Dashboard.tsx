@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import BookmarksList from '../../components/BookmarksList';
-import { useFetch } from '../../hooks/useFetch';
-import { BookmarkType } from '../../utils/types';
+import BookmarksList from '../components/BookmarksList';
+import { useFetch } from '../hooks/useFetch';
+import { BookmarkType } from '../utils/types';
 
 const Dashboard: React.FC = () => {
   const [url, setUrl] = useState('http://localhost:3001/bookmarks');

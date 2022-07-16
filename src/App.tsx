@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import BookmarkPage from './pages/bookmark/BookmarkPage';
-import Dashboard from './pages/dashboard/Dashboard';
-import Home from './pages/home/Home';
-import Landing from './pages/home/Landing';
-import Login from './pages/login/Login';
+import BookmarkPage from './pages/BookmarkPage';
+import Dashboard from './pages/Dashboard';
+import Home from './pages/Home';
+import Landing from './pages/Landing';
+import Login from './pages/Login';
 
 function App() {
   return (

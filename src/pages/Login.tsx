@@ -1,5 +1,5 @@
-import GoogleButton from '../../assets/btn_google_signin.png';
-import { useLogin } from '../../hooks/useLogin';
+import GoogleButton from '../assets/btn_google_signin.png';
+import { useLogin } from '../hooks/useLogin';
 
 const Login = () => {
   const { error, login } = useLogin();

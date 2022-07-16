@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { useFetch } from '../../hooks/useFetch';
-import { BookmarkType } from '../../utils/types';
+import { useFetch } from '../hooks/useFetch';
+import { BookmarkType } from '../utils/types';
 
 const BookmarkPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
