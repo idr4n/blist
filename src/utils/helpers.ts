@@ -1,5 +1,5 @@
 // returns URL from string
-function getURL(str: string) {
+export function getURL(str: string) {
   let matches = str.match(/https?:\/\/[^ ]+/gi);
   if (matches) {
     return matches[0];
