@@ -1,40 +1,40 @@
 {
-  "bookmarks": [
-    {
-      "id": "1",
-      "title": "This is google https://www.google.com",
-      "tags": [
-        "search"
-      ]
-    },
-    {
-      "id": "2",
-      "title": "This is brave search https://search.brave.com/ which is a new search engine",
-      "tags": [
-        "search"
-      ]
-    },
-    {
-      "id": "3",
-      "title": "Pluging manager packer https://github.com/wbthomason/packer.nvim",
-      "tags": [
-        "nvim",
-        "github"
-      ]
-    },
-    {
-      "id": "4",
-      "title": "A really long title here                with extra white space to test the max length of the title, Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-      "tags": [
-        "test"
-      ]
-    },
-    {
-      "id": "5",
-      "title": "Neovim-visual-multi full mapping list https://github.com/mg979/vim-visual-multi/wiki/Mappings#:~:text=Redo%22%5D%20%3D%20%27%3CC%2Dr%3E%27-,Full%20mappings%20list,-Mappings%20with%20%5C%5C%20are",
-      "tags": [
-        "nvim"
-      ]
-    }
-  ]
+    "bookmarks": [
+        {
+            "id": "1",
+            "title": "This is google https://www.google.com",
+            "tags": [
+                "search"
+            ]
+        },
+        {
+            "id": "2",
+            "title": "This is brave search https://search.brave.com/ which is a new search engine",
+            "tags": [
+                "search"
+            ]
+        },
+        {
+            "id": "3",
+            "title": "Pluging manager packer https://github.com/wbthomason/packer.nvim",
+            "tags": [
+                "nvim",
+                "github"
+            ]
+        },
+        {
+            "id": "4",
+            "title": "A really long title here                with extra white space to test the max length of the title, Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+            "tags": [
+                "test"
+            ]
+        },
+        {
+            "id": "5",
+            "title": "Neovim-visual-multi full mapping list https://github.com/mg979/vim-visual-multi/wiki/Mappings#:~:text=Redo%22%5D%20%3D%20%27%3CC%2Dr%3E%27-,Full%20mappings%20list,-Mappings%20with%20%5C%5C%20are",
+            "tags": [
+                "nvim"
+            ]
+        }
+    ]
 }

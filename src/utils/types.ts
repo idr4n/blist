@@ -1,16 +1,15 @@
 export type BookmarkType = {
-  id: string;
-  title: string;
-  tags: string[];
+    id: string;
+    title: string;
+    tags: string[];
 };
 
 export type BookmarksListProps = {
-  bookmarks: BookmarkType[];
-  onBookmarkClick?: (bookmark: BookmarkType) => void;
+    bookmarks: BookmarkType[];
+    onBookmarkClick?: (bookmark: BookmarkType) => void;
 };
 
 export type BookmarkProps = {
-  bookmark: BookmarkType;
-  selected: boolean;
+    bookmark: BookmarkType;
+    selected: boolean;
 };
-
